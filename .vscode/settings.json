@@ -1,0 +1,14 @@
+{
+    "cSpell.words": [
+        "instafund"
+    ],
+    "sqltools.useNodeRuntime": true,
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "details database",
+            "database": "${workspaceFolder:InstaFund -web}/database/instafund_database.db"
+        }
+    ]
+}
