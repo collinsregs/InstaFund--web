@@ -17,7 +17,7 @@ db_Connection.serialize(()=>{
     });
 
     });
+    db_Connection.close(); 
   }
 
-  register_staff(1100002,'foo bar', 72505823);
-db_Connection.close();
+  module.exports = register_staff;

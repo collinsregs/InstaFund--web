@@ -22,7 +22,7 @@ db_Connection.serialize(()=>{
     });
 
     });
-  }
+    db_Connection.close();
+}
+module.exports = apply_loan;
 
-  apply_loan(11001100,1100002, 11001100);
-db_Connection.close();

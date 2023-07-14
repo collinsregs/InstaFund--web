@@ -2,11 +2,11 @@ var db_Connection = require("./db_connect.js");
 console.log(db_Connection);
 
 const sql_register_customer = 'INSERT INTO CUSTOMER (National_Id, First_Name, Last_Name, Gender) VALUES (?, ?, ?, ?)'
-var id, first_name, last_name, gender;
 
-function register_customer(){
 
-    var data=[11001100,'collins','red', 'male'];
+function register_customer(id,first_name,last_name,gender) {
+
+    var data=[id,first_name,last_name,gender];
 db_Connection.serialize(()=>{
     db_Connection.run(sql_register_customer,data,function(err){
         if (err) {
@@ -17,7 +17,8 @@ db_Connection.serialize(()=>{
     });
 
     });
-  }
+    db_Connection.close();
+}
 
-  register_customer();
-db_Connection.close();
+register_customer(10,'col','bar','male');
+  // module.exports = register_customer(id, first_name,last_name,gender);
