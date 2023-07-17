@@ -1,7 +1,7 @@
 var db_Connection = require("./db_connect.js");
 console.log(db_Connection);
 
-const sql_view_customers = 'SELECT First_Name, Last_Name FROM CUSTOMER'
+const sql_view_customers = 'SELECT * FROM CUSTOMER'
 
 
 

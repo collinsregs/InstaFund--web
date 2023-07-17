@@ -20,5 +20,5 @@ db_Connection.serialize(()=>{
     db_Connection.close();
 }
 
-register_customer(10,'col','bar','male');
-  // module.exports = register_customer(id, first_name,last_name,gender);
+
+  module.exports = register_customer;
