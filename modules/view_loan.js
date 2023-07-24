@@ -6,14 +6,15 @@ const sql_view_loan = 'SELECT * FROM LOANS'
 
 
 function view_loan(){
-    return db_Connection.all (sql_view_loan,function(err,customers){
-        if(err){
-            console.log(err);
-        }
-        else
-        console.log(JSON.stringify(customers));
-
-    });
+    return new Promise((resolve, reject) => {
+        db_Connection.all(sql_view_loan, function (err, loans) {
+            if (err) {
+              reject(err);
+            } else {
+              resolve(loans);
+            }
+    })
+})
 }
 view_loan();
 

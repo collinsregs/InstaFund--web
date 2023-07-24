@@ -135,16 +135,16 @@
                 <div data-i18n="Analytics">Dashboard</div>
               </a>
             </li>
-<!-- Clients -->
+<!-- clients -->
             <li class="menu-header small text-uppercase">
               <span class="menu-header-text">Clients</span>
               <li class="menu-item ">
-                <a href="register-customer.html" class="menu-link">
+                <a href="/customers/new" class="menu-link">
                   <div data-i18n="Analytics">Register Client</div>
                 </a>
               </li>
               <li class="menu-item ">
-                <a href="view-customers.html" class="menu-link">
+                <a href="/customers" class="menu-link">
                   <div data-i18n="Analytics">View Clients</div>
                 </a>
               </li>
@@ -153,26 +153,26 @@
             <li class="menu-header small text-uppercase">
               <span class="menu-header-text">Loans</span>
               <li class="menu-item ">
-                <a href="register-loan.html" class="menu-link">
+                <a href="/loans/new" class="menu-link">
                   <div data-i18n="Analytics">Loan Application</div>
                 </a>
               </li>
               <li class="menu-item ">
-                <a href="view-loans.html" class="menu-link">
+                <a href="/loans" class="menu-link">
                   <div data-i18n="Analytics">View loans</div>
                 </a>
               </li>
             </li>
 <!-- employees -->
             <li class="menu-header small text-uppercase">
-              <span class="menu-header-text">Loans</span>
+              <span class="menu-header-text">Officers</span>
               <li class="menu-item ">
-                <a href="register-employee.html" class="menu-link">
+                <a href="/employee/new" class="menu-link">
                   <div data-i18n="Analytics">Register Officer</div>
                 </a>
               </li>
               <li class="menu-item active">
-                <a href="view-employees.html" class="menu-link">
+                <a href="/employee" class="menu-link">
                   <div data-i18n="Analytics">View Officers</div>
                 </a>
               </li>
@@ -298,13 +298,16 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <th scope="row">1</th>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                      </tr>
+                      <% for (let i = 0; i < employees.length; i++) {%>
+                        <tr>
+                         <td><%= i+1 %></td>
+                         <td><%= employees[i].National_Id %></td>
+                         <td><%= employees[i].First_Name %></td>
+                         <td><%= employees[i].Phone_Number  %></td>
+ 
+ 
+                        </tr>
+                       <% } %>
 
                     </tbody>
                   </table>
