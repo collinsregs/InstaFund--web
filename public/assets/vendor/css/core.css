@@ -477,6 +477,40 @@ progress {
   font-size: 1.0546875rem;
   font-weight: 400;
 }
+.dialog-box-bg{
+  display: none;
+}
+.dialog-box{
+  display: none;
+}
+.dialog-box[data-visibility='visible']{
+  display: grid;
+  align-items: center;
+  justify-items:center ;
+  position: relative;
+  width: 40%;
+  height: 30%;
+  background-color: rgb(245, 245, 249);
+  text-align: center;
+  border-radius: 3%;
+  -webkit-border-radius: 3%;
+  -moz-border-radius: 3%;
+  -ms-border-radius: 3%;
+  -o-border-radius: 3%;
+}
+.dialog-box-bg[data-visibility='visible']{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+  z-index: 99999;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
 
 .display-1 {
   font-size: calc(1.525rem + 3.3vw);

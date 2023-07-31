@@ -18,9 +18,8 @@ app.use(express.json());
 
 
 app.get('/', (req, res)=>{
-  console.log(req.headers)
-  console.log("get ejs")
-  res.send('dashboard')
+
+  res.render("index")
   
 })
 app.get("/login", (req,res)=>{})
@@ -34,11 +33,11 @@ const employee_routes=require("./routes/employee_routes")
 app.use("/employees",employee_routes)
 
 const loan_routes =require("./routes/loan_route");
-const bodyParser = require('body-parser');
+
 app.use("/loans",loan_routes)
 
 app.all('*', (req, res)=>{
-  res.status(404).send("<h1>resource not found</h1>")
+  res.status(404).render("under-maintenance",{error:404} )
 })
 app.use((err, req, res, next) => {
   console.error(err.stack);

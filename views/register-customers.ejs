@@ -54,6 +54,12 @@
   </head>
 
   <body>
+                <!-- dialog box -->
+                <div class="dialog-box-bg" data-visibility="<%= dialog_visibility %>">
+                  <div class="dialog-box" data-visibility="<%= dialog_visibility %>">
+                    the content
+                  </div>
+                </div>
   <!-- Layout wrapper -->
     <div class="layout-wrapper layout-content-navbar">
       <div class="layout-container">
@@ -117,7 +123,7 @@
                   </g>
                 </svg>
               </span>
-              <span class="app-brand-text demo menu-text fw-bolder ms-2">Sneat</span>
+              <span class="app-brand-text demo menu-text fw-bolder ms-2">Instant Fundry</span>
             </a>
 
             <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
@@ -130,7 +136,7 @@
           <ul class="menu-inner py-1">
 <!-- Dashboard -->
             <li class="menu-item ">
-              <a href="index.html" class="menu-link">
+              <a href="/" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">Dashboard</div>
               </a>
@@ -167,12 +173,12 @@
             <li class="menu-header small text-uppercase">
               <span class="menu-header-text">Loans</span>
               <li class="menu-item ">
-                <a href="/employee/new" class="menu-link">
+                <a href="/employees/new" class="menu-link">
                   <div data-i18n="Analytics">Register Officer</div>
                 </a>
               </li>
               <li class="menu-item ">
-                <a href="/employee" class="menu-link">
+                <a href="/employees" class="menu-link">
                   <div data-i18n="Analytics">View Officers</div>
                 </a>
               </li>
@@ -197,42 +203,42 @@
                                 <div class="card-body">
 <!-- Full Name -->
                                   <div class="mb-3 row">
-                                    <label for="html5-text-input" class="col-md-2 col-form-label">Full_Name</label>
+                                    <label for="Full_Name" class="col-md-2 col-form-label">Full_Name</label>
                                     <div class="col-md-10">
-                                      <input class="form-control" type="text"  id="html5-text-input" name="Full Name"/>
+                                      <input class="form-control" type="text"  id="Full_Name" name="Full_Name"/>
                                     </div>
                                   </div>
 <!-- Gender -->
                                   <div class="mb-3 row">
-                                    <label for="html5-text-input" class="col-md-2 col-form-label">Gender</label>
+                                    <label for="Gender" class="col-md-2 col-form-label">Gender</label>
                                     <div class="col-md-10">
                                     <div class="form-check form-check-inline">
                                         <input
                                           class="form-check-input"
                                           type="radio"
                                           name="Gender"
-                                          id="inlineRadio2"
+                                          id="Gender"
                                           value="Female"
                                         />
-                                        <label class="form-check-label" for="inlineRadio2">Female</label>
+                                        <label class="form-check-label" for="Gender">Female</label>
                                       </div>
                                       <div class="form-check form-check-inline">
                                         <input
                                           class="form-check-input"
                                           type="radio"
                                           name="Gender"
-                                          id="inlineRadio2"
+                                          id="Gender"
                                           value="Male"
                                         />
-                                        <label class="form-check-label" for="inlineRadio2">Male</label>
+                                        <label class="form-check-label" for="Gender">Male</label>
                                       </div>
                                     </div>
                                   </div>
 <!-- Stakeholder type -->
                                   <div class="mb-3 row">
-                                    <label for="html5-text-input" class="col-md-2 col-form-label" >Stakeholder Type</label>
+                                    <label for="Stakeholder" class="col-md-2 col-form-label" >Stakeholder Type</label>
                                     <div class="col-md-10">
-                                        <select class="form-select" id="exampleFormControlSelect1" aria-label="Default select stakeholder type" name="Stakeholder">
+                                        <select class="form-select" id="Stakeholder" aria-label="Default select stakeholder type" name="Stakeholder">
                       
                                             <option value="Director">Director</option>
                                             <option value="Shareholder">Shareholder</option>
@@ -243,117 +249,117 @@
                                   </div>
 <!-- National Id -->
                                   <div class="mb-3 row">
-                                    <label for="html5-number-input" class="col-md-2 col-form-label">National ID</label>
+                                    <label for="National_ID" class="col-md-2 col-form-label">National ID</label>
                                     <div class="col-md-10">
-                                      <input class="form-control" type="number"  id="html5-number-input" />
+                                      <input class="form-control" type="number" name="National_ID" id="National_ID" />
                                     </div>
                                   </div>
 <!-- Phone number -->
                                   <div class="mb-3 row">
-                                    <label for="html5-tel-input" class="col-md-2 col-form-label">Mobile Number</label>
+                                    <label for="Mobile" class="col-md-2 col-form-label">Mobile Number</label>
                                     <div class="col-md-10">
-                                      <input class="form-control" type="tel" id="html5-tel-input" />
+                                      <input class="form-control" type="tel" id="Mobile" />
                                     </div>
                                   </div>
 <!-- Email -->
                                   <div class="mb-3 row">
-                                    <label for="html5-email-input" class="col-md-2 col-form-label">Email</label>
+                                    <label for="Email" class="col-md-2 col-form-label">Email</label>
                                     <div class="col-md-10">
-                                      <input class="form-control" type="email"  id="html5-email-input" />
+                                      <input class="form-control" type="email"  id="Email" />
                                     </div>
                                   </div>
 <!-- Date of birth -->
                                   <div class="mb-3 row">
-                                      <label for="html5-date-input" class="col-md-2 col-form-label">Date of Birth</label>
+                                      <label for="DOB" class="col-md-2 col-form-label">Date of Birth</label>
                                       <div class="col-md-10">
-                                        <input class="form-control" type="date"  id="html5-date-input" />
+                                        <input class="form-control" type="date"  id="DOB" />
                                       </div>
                                     </div>
                                     <!-- postal address -->
                                     <div class="mb-3 row">
-                                        <label for="html5-text-input" class="col-md-2 col-form-label">Postal Address</label>
+                                        <label for="Address" class="col-md-2 col-form-label">Postal Address</label>
                                         <div class="col-md-10">
-                                            <input class="form-control" type="text"  id="html5-text-input" />
+                                            <input class="form-control" type="text"  id="Address" />
                                         </div>
                                     </div>
                                     <!-- postal code -->
                                     <div class="mb-3 row">
-                                        <label for="html5-text-input" class="col-md-2 col-form-label">Postal Code</label>
+                                        <label for="Zip" class="col-md-2 col-form-label">Postal Code</label>
                                         <div class="col-md-10">
-                                            <input class="form-control" type="text"  id="html5-text-input" />
+                                            <input class="form-control" type="text"  id="Zip" />
                                         </div>
                                     </div>
                                     <!-- town -->
                                     <div class="mb-3 row">
-                                        <label for="html5-text-input" class="col-md-2 col-form-label">Town</label>
+                                        <label for="Town" class="col-md-2 col-form-label">Town</label>
                                         <div class="col-md-10">
-                                            <input class="form-control" type="text"  id="html5-text-input" />
+                                            <input class="form-control" type="text"  id="Town" />
                                         </div>
                                     </div>
 <!-- Marital status -->
                                     <div class="mb-3 row">
-                                        <label for="html5-text-input" class="col-md-2 col-form-label">Marital Status</label>
+                                        <label for="Marital-Status" class="col-md-2 col-form-label">Marital Status</label>
                                         <div class="col-md-10">
                                         <div class="form-check form-check-inline">
                                             <input
                                               class="form-check-input"
                                               type="radio"
                                               name="marital-status"
-                                              id="inlineRadio2"
+                                              id="Marital-Status"
                                               value="Single"
                                             />
-                                            <label class="form-check-label" for="inlineRadio2">Single</label>
+                                            <label class="form-check-label" for="Marital-Status">Single</label>
                                           </div>
                                           <div class="form-check form-check-inline">
                                             <input
                                               class="form-check-input"
                                               type="radio"
                                               name="marital-status"
-                                              id="inlineRadio2"
+                                              id="Marital-Status"
                                               value="Married"
                                             />
-                                            <label class="form-check-label" for="inlineRadio2">Married</label>
+                                            <label class="form-check-label" for="Marital-Status">Married</label>
                                           </div>
                                           <div class="form-check form-check-inline">
                                             <input
                                               class="form-check-input"
                                               type="radio"
                                               name="marital-status"
-                                              id="inlineRadio2"
+                                              id="Marital-Status"
                                               value="Other"
                                             />
-                                            <label class="form-check-label" for="inlineRadio2">Other</label>
+                                            <label class="form-check-label" for="Marital-Status">Other</label>
                                           </div>
                                         </div>
                                     </div>
                                     <div class="mb-3 row">
-                                        <label for="html5-text-input" class="col-md-2 col-form-label">Spouse Name</label>
+                                        <label for="Spouse" class="col-md-2 col-form-label">Spouse Name</label>
                                         <div class="col-md-10">
-                                            <input class="form-control" type="text"  id="html5-text-input" />
+                                            <input class="form-control" type="text"  id="Spouse" />
                                         </div>
                                     </div>
                                     <div class="mb-3 row">
-                                        <label for="html5-number-input" class="col-md-2 col-form-label">Spouse National ID</label>
+                                        <label for="Spouse_ID" class="col-md-2 col-form-label">Spouse National ID</label>
                                         <div class="col-md-10">
-                                          <input class="form-control" type="number"  id="html5-number-input" />
+                                          <input class="form-control" type="number"  id="Spouse_ID" />
                                         </div>
                                       </div>
                                       <div class="mb-3 row">
-                                        <label for="html5-tel-input" class="col-md-2 col-form-label">Mobile Number</label>
+                                        <label for="Spouse_Mobile" class="col-md-2 col-form-label">Mobile Number</label>
                                         <div class="col-md-10">
-                                          <input class="form-control" type="tel" id="html5-tel-input" />
+                                          <input class="form-control" type="tel" id="Spouse_Mobile" />
                                         </div>
                                       </div>
                                       <div class="mb-3 row">
-                                        <label for="html5-number-input" class="col-md-2 col-form-label">Number of children</label>
+                                        <label for="children" class="col-md-2 col-form-label">Number of children</label>
                                         <div class="col-md-10">
-                                          <input class="form-control" type="number"  id="html5-number-input" />
+                                          <input class="form-control" type="number"  id="children" />
                                         </div>
                                       </div>
                                       <div class="mb-3 row">
-                                        <label for="html5-number-input" class="col-md-2 col-form-label">Number of other dependents</label>
+                                        <label for="dependents" class="col-md-2 col-form-label">Number of other dependents</label>
                                         <div class="col-md-10">
-                                          <input class="form-control" type="number"  id="html5-number-input" />
+                                          <input class="form-control" type="number"  id="dependents" />
                                         </div>
                                       </div>
                                 </div>
@@ -364,45 +370,45 @@
                                 <div class="card-body">
 <!-- location -->
                                   <div class="mb-3 row">
-                                    <label for="html5-text-input" class="col-md-2 col-form-label">Current Location and Telephone </label>
+                                    <label for="location" class="col-md-2 col-form-label">Current Location and Telephone </label>
                                     <div class="col-md-10">
-                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="4"></textarea>
+                                        <textarea class="form-control" id="location" rows="4"></textarea>
                                     </div>
                                   </div>
                                   <div class="mb-3 row">
-                                    <label for="html5-text-input" class="col-md-2 col-form-label">How long have you been at this location *If less than two years indicate previous location* </label>
+                                    <label for="Length_stay" class="col-md-2 col-form-label">How long have you been at this location *If less than two years indicate previous location* </label>
                                     <div class="col-md-10">
-                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="4"></textarea>
+                                        <textarea class="form-control" id="Length_stay" rows="4"></textarea>
                                     </div>
                                   </div>
                                   <div class="mb-3 row">
-                                    <label for="html5-text-input" class="col-md-2 col-form-label">Landlord name and Mobile number *include former landlord if less than two years at current location* </label>
+                                    <label for="Landlord" class="col-md-2 col-form-label">Landlord name and Mobile number *include former landlord if less than two years at current location* </label>
                                     <div class="col-md-10">
-                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="4"></textarea>
+                                        <textarea class="form-control" id="Landlord" rows="4"></textarea>
                                     </div>
                                   </div>
                                   <div class="mb-3 row">
-                                    <label for="html5-text-input" class="col-md-2 col-form-label">Do you intend to relocate</label>
+                                    <label for="relocate" class="col-md-2 col-form-label">Do you intend to relocate</label>
                                     <div class="col-md-10">
                                     <div class="form-check form-check-inline">
                                         <input
                                           class="form-check-input"
                                           type="radio"
                                           name="relocation status"
-                                          id="inlineRadio2"
+                                          id="relocate"
                                           value="Yes"
                                         />
-                                        <label class="form-check-label" for="inlineRadio2">Yes</label>
+                                        <label class="form-check-label" for="relocate">Yes</label>
                                       </div>
                                       <div class="form-check form-check-inline">
                                         <input
                                           class="form-check-input"
                                           type="radio"
                                           name="relocation status"
-                                          id="inlineRadio2"
+                                          id="relocate"
                                           value="No"
                                         />
-                                        <label class="form-check-label" for="inlineRadio2">No</label>
+                                        <label class="form-check-label" for="relocate">No</label>
                                       </div>
                                      
                                     </div>
@@ -410,6 +416,7 @@
                               </div>
                               <button class="btn btn-primary" type="submit">submit</button>
                             </form>
+                            
 <!-- / Content -->
 
             <!-- Footer -->

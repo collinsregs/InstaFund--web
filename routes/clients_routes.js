@@ -1,9 +1,10 @@
 const express = require("express");
-// const { route } = require("./loan_route");
 const router = express.Router();
+router.use(express.static('../public'))
 
 
 const view_customer=require( "../modules/view_customer.js");
+const register_customer = require( "../modules/register_customer.js");
 
 
 router.get("/", get_clients, (req,res)=>{
@@ -20,15 +21,17 @@ router.get("/", get_clients, (req,res)=>{
 })
 
 router.get("/new", (req,res)=>{
-    res.render("register-customers")
+    res.render("register-customers",{dialog_visibility: ''} )
     // res.send("new customers")
 })
 
-router.post("/new/submit",(req,res)=>{
+router.post("/new/submit",post_clients,(req,res)=>{
     try{
-        console.log(req)
-        // res.send(req.body.)
-        res.send("submitted")
+        console.log(req.body)
+        
+
+        res.redirect("/customers/new")
+        
     }
     catch(err){
         console.log(err)
@@ -55,5 +58,20 @@ function get_clients(req, res, next){
         res.status(500).send("Error fetching clients")
 
     })
+}
+function post_clients(req, res, next){
+    try{
+    var err=register_customer(req.body.National_ID,req.body.Full_Name,req.body.Gender)
+    console.log(err)
+    if(err!=null){
+        res.render("under-maintenance",{error:err})
+    }
+
+    }
+    catch(err){
+        console.log((err.message || err.stack))
+        res.status(500).send(err.message)
+    }
+    next()
 }
 module.exports = router;

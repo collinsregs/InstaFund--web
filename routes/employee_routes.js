@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 const view_employee=require("../modules/view_employee.js");
+const register_employee=require("../modules/register_employee.js");
 
 
 router.get("/",get_employees, (req,res)=>{
@@ -20,6 +21,9 @@ router.get("/",get_employees, (req,res)=>{
 
 router.get("/new", (req,res)=>{
     res.render("register-employees")
+})
+router.post("/new/submit",post_employees ,(req,res)=>{
+    res.redirect("employees/new")
 })
 
 router.get("/:id", (req,res)=>{
@@ -41,6 +45,15 @@ function get_employees(req, res, next){
         res.status(500).send("Error fetching employees")
 
     })
+}
+function post_employees(req, res,next){
+    try{
+        register_employee(req.body.National_ID,req.body.Full_Name,req.body.Mobile)
+    }
+    catch(err){
+        res.status(500).send(err.message)
+    }
+    next()
 }
 
 module.exports = router;
