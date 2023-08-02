@@ -1,6 +1,11 @@
 {
     "cSpell.words": [
-        "instafund"
+        "instafund",
+        "instalments",
+        "mpesa",
+        "oidc",
+        "Pesa",
+        "Safaricom"
     ],
     "sqltools.useNodeRuntime": true,
     "sqltools.connections": [

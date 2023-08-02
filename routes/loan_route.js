@@ -3,11 +3,12 @@ const router = express.Router();
 
 const view_loan=require("../modules/view_loan");
 const  register_loan=require("../modules/loan_application");
+const view_pending_loan=require("../modules/view_pending_loans");
 
 
 router.get("/", get_loans,(req,res)=>{
     try{
-        console.log("viewing loan");
+        
     
         res.render("view-loans", {loans: res.locals.loans})
         }
@@ -16,6 +17,15 @@ router.get("/", get_loans,(req,res)=>{
             console.log(err);
             console.log(err.message);
         }
+})
+router.get("/approveLoans",get_pending_loans,(req,res)=>{
+    try{
+        console.log("gettingloans");
+        res.render("approve-loans", {loans:res.locals.loans})
+    }
+    catch(err){
+        console.log(err)
+    }
 })
 
 router.get("/new", (req,res)=>{
@@ -36,11 +46,17 @@ router.get("/:id", (req,res)=>{
     // res.render("details-loans")
     res.send('loan id')
 })
-
+function get_pending_loans(req,res,next){
+view_pending_loan().then((loans)=>{
+    res.locals.loans=loans
+    next()
+}).catch((err)=>{
+    res.status(500).send("error fetching pending loans")
+})
+}
 function get_loans(req, res, next){
     view_loan()
     .then((loans)=>{
-        console.log(loans);
         res.locals.loans = loans;
         // console.log(res.locals);
         next()
