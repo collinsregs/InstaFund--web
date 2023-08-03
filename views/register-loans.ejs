@@ -129,7 +129,7 @@
 
           <ul class="menu-inner py-1">
 <!-- Dashboard -->
-            <li class="menu-item active">
+            <li class="menu-item ">
               <a href="/" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">Dashboard</div>
@@ -148,16 +148,12 @@
                   <div data-i18n="Analytics">View Clients</div>
                 </a>
               </li>
-              <li class="menu-item ">
-                <a href="/loans/approveLoans" class="menu-link">
-                  <div data-i18n="Analytics">Approve loans</div>
-                </a>
-              </li>
+              
             
 <!-- loans -->
             <li class="menu-header small text-uppercase">
               <span class="menu-header-text">Loans</span>
-              <li class="menu-item ">
+              <li class="menu-item  active">
                 <a href="/loans/new" class="menu-link">
                   <div data-i18n="Analytics">Loan Application</div>
                 </a>
@@ -167,6 +163,11 @@
                   <div data-i18n="Analytics">View loans</div>
                 </a>
               </li>
+              <!-- <li class="menu-item ">
+                <a href="/loans/approveLoans" class="menu-link">
+                  <div data-i18n="Analytics">Approve loans</div>
+                </a>
+              </li> -->
             </li>
 <!-- employees -->
             <li class="menu-header small text-uppercase">
@@ -287,7 +288,7 @@
         <div class="content-wrapper">
             <!-- Content -->
 
-            <form action="/loans/new/submit" method="post">
+            <form action="/loans/new/submit" method="post" >
                 <div class="card mb-4">
                     <h5 class="card-header">Client Details</h5>
                     <div class="card-body">
@@ -310,7 +311,7 @@
                              <input class="form-control" type="number" name="Guarantor_ID" id="National_ID" />
                           </div>
                        </div>
-                       <div class="mb-3 row">
+                       <!-- <div class="mb-3 row">
                         <label for="Guarantor_Full_Name" class="col-md-2 col-form-label">Guarantor Full Name</label>
                         <div class="col-md-10">
                           <input class="form-control" type="text"  id="Full_Name" name="Guarantor_Full_Name"/>
@@ -320,6 +321,36 @@
                         <label for="Guarantor_Mobile" class="col-md-2 col-form-label">Guarantor Mobile Number</label>
                         <div class="col-md-10">
                           <input class="form-control" type="tel" id="Mobile" name="Guarantor_Mobile" />
+                        </div>
+                      </div> -->
+                      <div class="mb-3 row">
+                        <label for="amount" class="col-md-2 col-form-label">amount applied</label>
+                           <div class="col-md-10">
+                             <input class="form-control" type="number" name="amount_applied" id="National_ID" />
+                          </div>
+                       </div>
+                       <div class="mb-3 row">
+                        <label for="Stakeholder" class="col-md-2 col-form-label" >Loan category</label>
+                        <div class="col-md-10">
+                            <select class="form-select" id="Stakeholder" aria-label="Default select stakeholder type" name="Category">
+          
+                                <option value="1">cat1</option>
+                                <option value="2">cat2</option>
+                                <option value="3">cat3</option>
+                                
+                              </select>
+                        </div>
+                      </div>
+                      <div class="mb-3 row">
+                        <label for="Stakeholder" class="col-md-2 col-form-label" >Loan status</label>
+                        <div class="col-md-10">
+                            <select class="form-select" id="Stakeholder" aria-label="Default select stakeholder type" name="Status">
+          
+                                <option value="APPROVED">approved</option>
+                                <option value="PENDING">Pending</option>
+                                <option value="COMPLETED">completed</option>
+                                
+                              </select>
                         </div>
                       </div>
 <!-- officer id -->

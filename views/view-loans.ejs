@@ -162,11 +162,11 @@
                   <div data-i18n="Analytics">View loans</div>
                 </a>
               </li>
-              <li class="menu-item ">
+              <!-- <li class="menu-item ">
                 <a href="/loans/approveLoans" class="menu-link">
                   <div data-i18n="Analytics">Approve loans</div>
                 </a>
-              </li>
+              </li> -->
             </li>
 <!-- employees -->
             <li class="menu-header small text-uppercase">
@@ -298,7 +298,7 @@
                         <th>#</th>
                         <th>Loan ID</th>
                         <th>Client ID</th>
-                        <th>Client Name</th>
+                        <!-- <th>Client Name</th> -->
                         <th>Pending Amount </th>
                         <th>Loan Status</th>
                       </tr>
@@ -307,9 +307,10 @@
                       <% for (let i = 0; i < loans.length; i++) {%>
                         <tr>
                          <td><%= i+1 %></td>
-                         <td><%= loans[i].National_Id %></td>
-                         <td><%= loans[i].First_Name %></td>
-                         <td><%= loans[i].Phone_Number  %></td>
+                         <td><%= loans[i].Loan_Number %></td>
+                         <td><%= loans[i].Customer_Id %></td>
+                         <td><%= loans[i].Amount_Balance %></td>
+                         <td><%= loans[i].Category %></td>
  
  
                         </tr>

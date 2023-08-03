@@ -61,7 +61,8 @@ function get_clients(req, res, next){
 }
 function post_clients(req, res, next){
     try{
-    var err=register_customer(req.body.National_ID,req.body.Full_Name,req.body.Gender)
+        console.log(req.body)
+    var err=register_customer(req.body.National_ID,req.body.First_Name,req.body.Gender)
     console.log(err)
     if(err!=null){
         res.render("under-maintenance",{error:err})

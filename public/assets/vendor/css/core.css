@@ -15258,6 +15258,9 @@ html:not(.layout-menu-fixed) .menu-inner-shadow {
 .layout-menu {
   min-height: 1px;
 }
+.layout-menu{
+  background-color: #696cff !important;
+}
 
 .layout-navbar,
 .content-footer {

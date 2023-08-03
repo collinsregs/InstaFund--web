@@ -168,11 +168,11 @@
                   <div data-i18n="Analytics">View loans</div>
                 </a>
               </li>
-              <li class="menu-item ">
+              <!-- <li class="menu-item ">
                 <a href="/loans/approveLoans" class="menu-link">
                   <div data-i18n="Analytics">Approve loans</div>
                 </a>
-              </li>
+              </li> -->
             </li>
 <!-- employees -->
             <li class="menu-header small text-uppercase">
@@ -200,7 +200,7 @@
           <!-- Content wrapper -->
         <div class="content-wrapper">
  <!-- Content -->
- <form action="/customers/new/submit" method="POST">
+ <form action="/customers/new/submit" method="POST" enctype="multipart/form-data">
 
                              <!-- HTML5 Inputs -->
                              <div class="card mb-4">
@@ -208,9 +208,23 @@
                                 <div class="card-body">
 <!-- Full Name -->
                                   <div class="mb-3 row">
-                                    <label for="Full_Name" class="col-md-2 col-form-label">Full_Name</label>
+                                    <label for="Full_Name" class="col-md-2 col-form-label">First Name</label>
                                     <div class="col-md-10">
-                                      <input class="form-control" type="text"  id="Full_Name" name="Full_Name"/>
+                                      <input class="form-control" type="text"  id="Full_Name" name="First_Name" required/>
+                                    </div>
+                                  </div>
+                                  <div class="mb-3 row">
+                                    <label for="Full_Name" class="col-md-2 col-form-label">Middle Name</label>
+                                    <div class="col-md-10">
+                                      <input class="form-control" type="text"  id="Full_Name" />
+                                    </div>
+                                  </div>
+                                  <div class="mb-3 row">
+                                    <label for="Full_Name" class="col-md-2 col-form-label">Last Name</label>
+                                    <div class="col-md-10">
+                                      <input class="form-control" type="text"  id="Full_Name" required
+                                      
+                                      />
                                     </div>
                                   </div>
 <!-- Gender -->
@@ -239,25 +253,23 @@
                                       </div>
                                     </div>
                                   </div>
-<!-- Stakeholder type -->
-                                  <div class="mb-3 row">
-                                    <label for="Stakeholder" class="col-md-2 col-form-label" >Stakeholder Type</label>
-                                    <div class="col-md-10">
-                                        <select class="form-select" id="Stakeholder" aria-label="Default select stakeholder type" name="Stakeholder">
-                      
-                                            <option value="Director">Director</option>
-                                            <option value="Shareholder">Shareholder</option>
-                                            <option value="Partner">Partner</option>
-                                            <option value="Signatory">Signatory</option>
-                                          </select>
-                                    </div>
-                                  </div>
+
 <!-- National Id -->
                                   <div class="mb-3 row">
                                     <label for="National_ID" class="col-md-2 col-form-label">National ID</label>
                                     <div class="col-md-10">
                                       <input class="form-control" type="number" name="National_ID" id="National_ID" />
                                     </div>
+                                  </div>
+                                  <!-- Date of birth -->
+                                  <div class="mb-3 row">
+                                    <label for="DOB" class="col-md-2 col-form-label">Date of Birth</label>
+                                    <div class="col-md-10">
+                                      <input class="form-control" type="date"  id="DOB" />
+                                    </div>
+                                  </div>
+                                  <div class="divider text-start divider-dark">
+                                    <div class="divider-text">Contact Details</div>
                                   </div>
 <!-- Phone number -->
                                   <div class="mb-3 row">
@@ -273,13 +285,7 @@
                                       <input class="form-control" type="email"  id="Email" />
                                     </div>
                                   </div>
-<!-- Date of birth -->
-                                  <div class="mb-3 row">
-                                      <label for="DOB" class="col-md-2 col-form-label">Date of Birth</label>
-                                      <div class="col-md-10">
-                                        <input class="form-control" type="date"  id="DOB" />
-                                      </div>
-                                    </div>
+
                                     <!-- postal address -->
                                     <div class="mb-3 row">
                                         <label for="Address" class="col-md-2 col-form-label">Postal Address</label>
@@ -300,6 +306,41 @@
                                         <div class="col-md-10">
                                             <input class="form-control" type="text"  id="Town" />
                                         </div>
+                                    </div>
+                                    <div class="mb-3 row">
+                                      <label for="Town" class="col-md-2 col-form-label">Home Location</label>
+                                      <div class="col-md-10">
+                                      <div class="input-group">
+                                        <button class="btn btn-outline-primary" type="button" id="button-addon1" onclick="getLocation()">current location</button>
+                                        <input
+                                          type="text"
+                                          class="form-control"
+                                          placeholder=" or enter geotag"
+                                          aria-label="Example text with button addon"
+                                          aria-describedby="button-addon1"
+                                        />
+                                      </div>
+                                      </div>
+                                  </div>
+                                    
+                                    <script>
+                                      function getLocation() {
+                                          if (navigator.geolocation) {
+                                              navigator.geolocation.getCurrentPosition(showPosition);
+                                          } else {
+                                              alert("Geolocation is not supported by this browser.");
+                                          }
+                                      }
+                                      
+                                      function showPosition(position) {
+                                          let latitude = position.coords.latitude;
+                                          let longitude = position.coords.longitude;
+                                          let url = `https://www.google.com/maps/search/?api=1&query=${latitude},${longitude}`;
+                                          window.open(url, '_blank');
+                                      }
+                                      </script>
+                                    <div class="divider text-start divider-dark">
+                                      <div class="divider-text">Dependents</div>
                                     </div>
 <!-- Marital status -->
                                     <div class="mb-3 row">
@@ -340,7 +381,7 @@
                                     <div class="mb-3 row">
                                         <label for="Spouse" class="col-md-2 col-form-label">Spouse Name</label>
                                         <div class="col-md-10">
-                                            <input class="form-control" type="text"  id="Spouse" />
+                                            <input class="form-control" type="text"  id="Spouse" minlength="7" maxlength="8"/>
                                         </div>
                                     </div>
                                     <div class="mb-3 row">
@@ -370,58 +411,174 @@
                                 </div>
                               </div>
 <!-- Business Details -->
-                              <div class="card mb-4">
-                                <h5 class="card-header">Business Details</h5>
-                                <div class="card-body">
+
+<div class="card mb-4">
+  <h5 class="card-header">Business Details</h5>
+  <div class="card-body">
+                  
+                  <div class="nav-align-top mb-4">
+                    <ul class="nav nav-tabs" role="tablist">
+                      <li class="nav-item">
+                        <button
+                          type="button"
+                          class="nav-link active"
+                          role="tab"
+                          data-bs-toggle="tab"
+                          data-bs-target="#navs-top-stakeholder"
+                          aria-controls="navs-top-stakeholder"
+                          aria-selected="true"
+                        >
+                          stakeholder
+                        </button>
+                      </li>
+                      <li class="nav-item">
+                        <button
+                          type="button"
+                          class="nav-link"
+                          role="tab"
+                          data-bs-toggle="tab"
+                          data-bs-target="#navs-top-employee"
+                          aria-controls="navs-top-employee"
+                          aria-selected="false"
+                        >
+                          employee
+                        </button>
+                      </li>
+                      
+                    </ul>
+                    <div class="tab-content">
+                      <div class="tab-pane fade show active" id="navs-top-stakeholder" role="tabpanel">
+                        <!-- Stakeholder type -->
+                        <div class="mb-3 row">
+                          <label for="Stakeholder" class="col-md-2 col-form-label" >Stakeholder Type</label>
+                          <div class="col-md-10">
+                              <select class="form-select" id="Stakeholder" aria-label="Default select stakeholder type" name="Stakeholder">
+            
+                                  <option value="Director">Director</option>
+                                  <option value="Shareholder">Shareholder</option>
+                                  <option value="Partner">Partner</option>
+                                  <option value="Signatory">Signatory</option>
+                                </select>
+                          </div>
+                        </div>
+                        <div class="mb-3 row">
+                          <label for="Town" class="col-md-2 col-form-label">Business Location</label>
+                          <div class="col-md-10">
+                          <div class="input-group">
+                            <button class="btn btn-outline-primary" type="button" id="button-addon1" onclick="getLocation()">current location</button>
+                            <input
+                              type="text"
+                              class="form-control"
+                              placeholder=" or enter geotag"
+                              aria-label="Example text with button addon"
+                              aria-describedby="button-addon1"
+                            />
+                          </div>
+                          </div>
+                      </div>
 <!-- location -->
-                                  <div class="mb-3 row">
-                                    <label for="location" class="col-md-2 col-form-label">Current Location and Telephone </label>
-                                    <div class="col-md-10">
-                                        <textarea class="form-control" id="location" rows="4"></textarea>
-                                    </div>
+                        <div class="mb-3 row">
+                          <label for="location" class="col-md-2 col-form-label">Current Location and Telephone </label>
+                          <div class="col-md-10">
+                              <textarea class="form-control" id="location" rows="4"></textarea>
+                          </div>
+                        </div>
+                        <div class="mb-3 row">
+                          <label for="Length_stay" class="col-md-2 col-form-label">How long have you been at this location *If less than two years indicate previous location* </label>
+                          <div class="col-md-10">
+                              <textarea class="form-control" id="Length_stay" rows="4"></textarea>
+                          </div>
+                        </div>
+                        <div class="mb-3 row">
+                          <label for="Landlord" class="col-md-2 col-form-label">Landlord name and Mobile number *include former landlord if less than two years at current location* </label>
+                          <div class="col-md-10">
+                              <textarea class="form-control" id="Landlord" rows="4"></textarea>
+                          </div>
+                        </div>
+                        <div class="mb-3 row">
+                          <label for="relocate" class="col-md-2 col-form-label">Do you intend to relocate</label>
+                          <div class="col-md-10">
+                          <div class="form-check form-check-inline">
+                              <input
+                                class="form-check-input"
+                                type="radio"
+                                name="relocation status"
+                                id="relocate"
+                                value="Yes"
+                              />
+                              <label class="form-check-label" for="relocate">Yes</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                              <input
+                                class="form-check-input"
+                                type="radio"
+                                name="relocation status"
+                                id="relocate"
+                                value="No"
+                              />
+                              <label class="form-check-label" for="relocate">No</label>
+                            </div>
+                          </div>
+                      </div>
+                      </div>
+                      <div class="tab-pane fade" id="navs-top-employee" role="tabpanel">
+                        <div class="mb-3 row">
+                          <label for="location" class="col-md-2 col-form-label">Current work Location and supervisor Telephone </label>
+                          <div class="col-md-10">
+                              <textarea class="form-control" id="location" rows="4"></textarea>
+                          </div>
+                        </div>
+                        <div class="mb-3 row">
+                          <label for="Town" class="col-md-2 col-form-label">Work Location</label>
+                          <div class="col-md-10">
+                          <div class="input-group">
+                            <button class="btn btn-outline-primary" type="button" id="button-addon1" onclick="getLocation()">current location</button>
+                            <input
+                              type="text"
+                              class="form-control"
+                              placeholder=" or enter geotag"
+                              aria-label="Example text with button addon"
+                              aria-describedby="button-addon1"
+                            />
+                          </div>
+                          </div>
+                      </div>
+                        <div class="mb-3 row">
+                          <label for="National_ID" class="col-md-2 col-form-label">monthly salary</label>
+                          <div class="col-md-10">
+                            <input class="form-control" type="number" name="salary" id="salary" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+  </div></div>
+  <script> 
+   document.querySelector('form').addEventListener('submit', function(){
+    let inactiveTabs = document.querySelectorAll('.nav-link:not(.active)');
+    inactiveTabs.forEach(function(tab){
+        let target = tab.getAttribute('data-bs-target');
+        let inputs = document.querySelectorAll(target + ' :input');
+        inputs.forEach(function(input){
+            input.disabled = true;
+        });
+    });
+});
+
+
+   </script>
+
+                              <div class="card mb-4">
+                                <h5 class="card-header">Files</h5>
+
+                                <div class="card-body">
+                                  <div class="mb-3">
+                                    <label for="formFile" class="form-label">Please upload registration form</label>
+                                    <input class="form-control" type="file" id="formFile" name="registration_form_image" accept="image/*"/>
                                   </div>
-                                  <div class="mb-3 row">
-                                    <label for="Length_stay" class="col-md-2 col-form-label">How long have you been at this location *If less than two years indicate previous location* </label>
-                                    <div class="col-md-10">
-                                        <textarea class="form-control" id="Length_stay" rows="4"></textarea>
-                                    </div>
-                                  </div>
-                                  <div class="mb-3 row">
-                                    <label for="Landlord" class="col-md-2 col-form-label">Landlord name and Mobile number *include former landlord if less than two years at current location* </label>
-                                    <div class="col-md-10">
-                                        <textarea class="form-control" id="Landlord" rows="4"></textarea>
-                                    </div>
-                                  </div>
-                                  <div class="mb-3 row">
-                                    <label for="relocate" class="col-md-2 col-form-label">Do you intend to relocate</label>
-                                    <div class="col-md-10">
-                                    <div class="form-check form-check-inline">
-                                        <input
-                                          class="form-check-input"
-                                          type="radio"
-                                          name="relocation status"
-                                          id="relocate"
-                                          value="Yes"
-                                        />
-                                        <label class="form-check-label" for="relocate">Yes</label>
-                                      </div>
-                                      <div class="form-check form-check-inline">
-                                        <input
-                                          class="form-check-input"
-                                          type="radio"
-                                          name="relocation status"
-                                          id="relocate"
-                                          value="No"
-                                        />
-                                        <label class="form-check-label" for="relocate">No</label>
-                                      </div>
-                                     
-                                    </div>
-                                </div>
+                                  <button class="btn btn-primary" type="submit">submit</button>
                               </div>
-                              <button class="btn btn-primary" type="submit">submit</button>
                             </form>
-                            
 <!-- / Content -->
 
             <!-- Footer -->
@@ -457,6 +614,7 @@
     </div>
 
     <!-- Core JS -->
+    
     <!-- build:js assets/vendor/js/core.js -->
     <script src="../assets/vendor/libs/jquery/jquery.js"></script>
     <script src="../assets/vendor/libs/popper/popper.js"></script>

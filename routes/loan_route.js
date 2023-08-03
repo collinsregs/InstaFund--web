@@ -18,15 +18,15 @@ router.get("/", get_loans,(req,res)=>{
             console.log(err.message);
         }
 })
-router.get("/approveLoans",get_pending_loans,(req,res)=>{
-    try{
-        console.log("gettingloans");
-        res.render("approve-loans", {loans:res.locals.loans})
-    }
-    catch(err){
-        console.log(err)
-    }
-})
+// router.get("/approveLoans",get_pending_loans,(req,res)=>{
+//     try{
+//         console.log("gettingloans");
+//         res.render("approve-loans", {loans:res.locals.loans})
+//     }
+//     catch(err){
+//         console.log(err)
+//     }
+// })
 
 router.get("/new", (req,res)=>{
     // res.render("register-loans")
@@ -34,7 +34,7 @@ router.get("/new", (req,res)=>{
 })
 router.post("/new/submit", post_loan,(req,res)=>{
     try{
-        res.redirect("/loans/new")
+        res.redirect("/loans/")
     }
     catch(err){
         console.log(err)
@@ -58,7 +58,7 @@ function get_loans(req, res, next){
     view_loan()
     .then((loans)=>{
         res.locals.loans = loans;
-        // console.log(res.locals);
+        console.log(loans);
         next()
     })
     .catch((err)=>{
@@ -69,7 +69,7 @@ function get_loans(req, res, next){
 }
 function post_loan(req, res, next){
     try{
-        register_loan(req.body.Customer_ID,req.body.Officer_ID,req.body.Guarantor_ID)
+        register_loan(req.body.Customer_ID,req.body.Officer_ID,req.body.Guarantor_ID,req.body.Category ,req.body.amount_applied,req.body.Status)
     }
     catch(err){
         console.log(err)
